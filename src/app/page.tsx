@@ -1,11 +1,9 @@
-import Image from "next/image";
-import Navbar from "./Navbar";
-import "./Navbar.css";
+import SearchBar from "./_components/SearchBar";
 
 function App() {
   return (
-    <div className="App">
-      <Navbar />
+    <div>
+      <SearchBar />
     </div>
   );
 }
