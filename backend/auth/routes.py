@@ -1,6 +1,8 @@
-from flask import Blueprint, request, jsonify
+from flask import Blueprint, request, jsonify, current_app
 from mongodb_connection import db
 from werkzeug.security import generate_password_hash, check_password_hash
+import jwt
+import datetime
 
 register_bp = Blueprint('register_bp', __name__)
 collection_name = "users"
@@ -35,7 +37,7 @@ def register():
 
 login_bp = Blueprint('login_bp', __name__)
 
-@login_bp.route('/login', methods=['GET', 'OPTIONS'])
+@login_bp.route('/login', methods=['POST', 'OPTIONS'])
 def login():
     if request.method == 'OPTIONS':
         return '', 204  # Handle preflight requests
@@ -55,6 +57,16 @@ def login():
     # Verify the password
     if not check_password_hash(user["password"], password):
         return jsonify({"error": "Invalid username or password"}), 401
+    
+    # Generate JWT
+    token = jwt.encode(
+        {
+            "user_id": username,
+            "exp": datetime.datetime.utcnow() + datetime.timedelta(hours=1),  # Token expires in 1 hour
+        },
+        current_app.config["SECRET_KEY"],
+        algorithm="HS256"
+    )
 
     # Success: User is authenticated
-    return jsonify({"message": "Login successful"}), 200
+    return jsonify({"token": token}), 200

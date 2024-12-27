@@ -3,23 +3,24 @@ from flask_cors import CORS
 from dotenv import load_dotenv
 from mongodb_connection import test_connection
 from auth.routes import register_bp
+from auth.routes import login_bp
 import os
-
+import jwt
 
 # Load environment variables
 load_dotenv()
 
 app = Flask(__name__)
-#CORS(app)
+app.config["SECRET_KEY"] = os.getenv("SECRET_KEY", "your_secret_key")
 CORS(app)
 CORS(register_bp)
 
-# Set secret key for the Flask app
-#app.config['SECRET_KEY'] = os.getenv('SECRET_KEY')
 # Test MongoDB connection
 test_connection()
+
 # Register blueprints
 app.register_blueprint(register_bp)
+app.register_blueprint(login_bp)
 
 # Add this block to run the app when the script is executed
 if __name__ == "__main__":

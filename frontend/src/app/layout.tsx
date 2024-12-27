@@ -2,6 +2,7 @@ import Navbar from "./_components/Navbar";
 import SecondNavbar from "./_components/SecondNavbar";
 import "./css/Navbar.css";
 import "./css/SecondNavbar.css";
+import { AuthProvider } from "../../AuthContext";
 
 export default function RootLayout({
   children,
@@ -11,9 +12,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <Navbar />
-        <SecondNavbar />
-        <main>{children}</main> {/* This renders the current page */}
+        <AuthProvider>
+          {" "}
+          {/* Wrap everything in AuthProvider */}
+          <Navbar />
+          <SecondNavbar />
+          <main>{children}</main> {/* This renders the current page */}
+        </AuthProvider>
       </body>
     </html>
   );
