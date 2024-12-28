@@ -1,7 +1,7 @@
 /* Navbar.css */
 .navbar {
-  background: linear-gradient(to bottom, #ff8800, #c76a00);
-  height: 4vh;
+  background: linear-gradient(var(--primary-color), var(--secondary-color));
+  height: 3vh;
   display: flex;
   justify-content: center;
   align-items: center;

@@ -1,12 +1,12 @@
 /* Navbar.css */
 .navbar2 {
-  background: #ffffff;
+  background: var(--tertiary-color);
   height: 10vh;
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 1.2rem;
-  border-bottom: 3px solid #ff5500; /* Add the bottom border here */
+  border-bottom: 3px solid var(--primary-color);
 }
 
 .navbar-container2 {
@@ -54,7 +54,7 @@
 }
 
 .nav-links2 {
-  color: #000000;
+  color: white;
   text-decoration: none;
 }
 

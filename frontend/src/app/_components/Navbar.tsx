@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import Link from "next/link";
 import { FaBars, FaTimes } from "react-icons/fa";
 import "../css/Navbar.css";
+import "../globals.css";
 import { useAuth } from "../../../AuthContext";
 
 // Define the component type (FC = Functional Component)

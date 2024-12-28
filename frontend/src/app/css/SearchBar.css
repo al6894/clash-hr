@@ -1,17 +1,17 @@
 .search-wrapper {
-  padding-top: 10vh; /* Leave space for navbars */
+  padding-top: 10vh;
   padding-left: 15vw;
-  width: 100%;
+  width: 100vw;
   box-sizing: border-box;
 }
 
 .search {
   align-items: center;
-  border-left: 2px solid #8b8b8b;
-  border-right: 2px solid #8b8b8b;
+  border-left: 2px solid rgba(82, 82, 82, 0.397);
+  border-right: 2px solid rgba(82, 82, 82, 0.397);
   padding: 20px;
-  background-color: white;
-  width: 70%;
+  background-color: var(--tertiary-color);
+  width: 70vw;
   margin-left: 15vw;
   margin-right: 15vw;
   height: 100vh;
@@ -29,7 +29,7 @@ input.clanID {
 button {
   padding: 0.9rem 1.2rem;
   margin-left: 10px;
-  background-color: #007bff;
+  background-color: var(--background);
   color: white;
   border: none;
   border-radius: 4px;
@@ -37,5 +37,11 @@ button {
 }
 
 h2 {
-  font-size: 4rem;
+  color: white;
+  font-size: 5rem;
+  font-weight: bolder;
+}
+
+body {
+  background-color: var(--background);
 }
